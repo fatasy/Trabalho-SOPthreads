@@ -1,11 +1,18 @@
-#pragma once
-
 #define HAVE_STRUCT_TIMESPEC
-#include <pthread.h> 
+#include <pthread.h>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "helps.h"
+
+
+void countNumberOfPrimesInMatrizSerialMode(int** matriz) {
+	int primeNumbersInMatriz = countPrimesInMatriz(matriz);
+	printf("Number of primes in matriz: %d\n", primeNumbersInMatriz);
+}
 
 int main() {
-	return 1;
+	int **matriz = genMatriz(GenMatrizParams{1000, 1000, 1, 31999});
+	countNumberOfPrimesInMatrizSerialMode(matriz);
 }
+
